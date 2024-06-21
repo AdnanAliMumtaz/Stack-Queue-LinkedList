@@ -9,7 +9,7 @@ public class Stack {
         Node next;
     }
 
-    Stack(){
+    public Stack(){
         this.top = null;
     }
 
@@ -17,8 +17,6 @@ public class Stack {
         
         // Created a new node
         Node newNode = new Node();
-
-        // Making a new node
         newNode.data = newData;
         newNode.next = top;
 
