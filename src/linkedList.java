@@ -97,22 +97,22 @@ public class linkedList {
 
     public void deletetionFromRear() {
 
+        // If the linkedlist is empty
         if (isEmpty()) {
             return;
         }
 
+        // If there is only one element to be deleted
         if (head.next == null) {
             head = null;
             return;
         }
 
-        // 
+        // Other Conditions
         Node temp = head;
-
         while (temp.next.next != null) {
             temp = temp.next;
         }
-
         temp.next = null;
     }
 
