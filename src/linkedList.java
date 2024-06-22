@@ -50,27 +50,70 @@ public class linkedList {
 
     public void insertAtIndex(int index, int newData){
 
-        // Make the new node
-        Node newNode = new Node(newData);
-
+        
         // Condition: Index == 0
         if (index == 0) {
-            newNode.next = head;
-            head = newNode;
+            insertAtFront(newData);
             return;
         }
 
-        // Condition: Index 0 >
+        // Make the new node
+        Node newNode = new Node(newData);
+            
+        // Condition: Index > 0
         Node temp = head;
-        for (int i=0; i<index - 1; i++) {
+
+        // Getting to the element
+        for (int i=0; i<index-1; i++) {
             temp = temp.next;
         }
         newNode.next = temp.next;
         temp.next = newNode;
     }
 
-    public void deleteion() {
+    public void deleteionFromFront() {
+        if (!isEmpty()) {
+            head = head.next;
+        }
+    }
 
+    public void deletionAtIndex(int index) {
+
+        // Condition: 
+        if (index == 0) {
+            head = head.next;
+        }
+
+        // Condition: 
+        Node temp = head;
+        for (int i=0; i<index-1; i++) {
+            temp = temp.next;
+        }
+
+        if (temp.next != null) {
+            temp.next = temp.next.next;
+        }
+    }
+
+    public void deletetionFromRear() {
+
+        if (isEmpty()) {
+            return;
+        }
+
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+
+        // 
+        Node temp = head;
+
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+
+        temp.next = null;
     }
 
     public boolean isEmpty() {
@@ -87,9 +130,10 @@ public class linkedList {
 
             while (temp != null) 
             { 
-                System.out.println(temp.data + " ");
+                System.out.print(temp.data + " ");
                 temp = temp.next;
             }
+            System.out.println("");
         }
     }    
 }
